@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './component/Login';
+import Navbar from './component/Navbar';
+import Table from './component/Table';
+import data from './data.json';
+import { Routes, Route } from 'react-router-dom';
+
 
 function App() {
+  const posts = data[101];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navbar title="Pandav Kund"/>
+    <Routes>
+      <Route path="/login" element={ <Login /> } />
+      <Route path="/bill" element={ <Table data={posts} /> } />
+    </Routes>
+    </>
   );
 }
 
