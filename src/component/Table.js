@@ -10,12 +10,18 @@ export default function Table() {
     const posts = data[location.state];
     const displayData= posts && posts.map(
         (info)=>{
+            let showBill, showReceipt;
+            if(info.billPath) {
+                showBill=<button className="btn btn-primary btn-sm mx-1" onClick={() => handleClick(info.billPath)}>Bill</button>
+            }
+            if(info.receiptPath) {
+                showReceipt=<button className="btn btn-primary btn-sm" onClick={() => handleClick(info.receiptPath)}>Receipt</button>
+            }
             return(
                 <tr key={info.id}>
                     <td>{info.id}</td>
                     <td>{info.month}</td>
-                    <td><button className="btn btn-primary btn-sm mx-2" onClick={() => handleClick(info.billPath)}>Bill</button>
-                    <button className="btn btn-primary btn-sm" onClick={() => handleClick(info.receiptPath)}>Receipt</button></td>
+                    <td>{showBill}{showReceipt}</td>
                 </tr>
             )
         }
