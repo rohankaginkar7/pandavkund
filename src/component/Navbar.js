@@ -23,7 +23,7 @@ export default function Navbar(props) {
     <div>
         <nav className="navbar" style={{backgroundColor: "#5269cd"}}>
             <div className="container-fluid">
-            <a className="navbar-brand" href="/">{props.title}</a>
+            <a className="navbar-brand" href="/pandavkund">{props.title}</a>
             <form className="d-flex">
                 {welcomeMsg}
                 {logout}
